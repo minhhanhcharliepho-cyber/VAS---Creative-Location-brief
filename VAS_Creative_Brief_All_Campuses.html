@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAS Creative Brief — Lead Gen Campaign 2025</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap');
+
+  :root {
+    --vas-green: #0B6E5E;
+    --vas-green-dark: #085041;
+    --vas-green-light: #E1F5EE;
+    --navy: #1A2744;
+    --navy-light: #E6EBF5;
+    --gold: #B8913A;
+    --gold-light: #FFF0D6;
+    --amber: #854F0B;
+    --amber-light: #FAEEDA;
+    --red-light: #FCEBEB;
+    --red: #A32D2D;
+    --green-light: #EAF3DE;
+    --green: #3B6D11;
+    --gray-50: #F8F7F4;
+    --gray-100: #EEECEA;
+    --gray-200: #D3D1C7;
+    --gray-500: #888780;
+    --gray-700: #444441;
+    --gray-900: #1C1B1A;
+    --text: #1C1B1A;
+    --text-muted: #666560;
+    --border: #E2E0DB;
+    --radius: 8px;
+    --radius-lg: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Be Vietnam Pro', -apple-system, sans-serif;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--text);
+    background: #F4F2EE;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .page { max-width: 1100px; margin: 0 auto; }
+
+  /* === HEADER === */
+  .doc-header {
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: 2rem 2.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .doc-header h1 { font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+  .doc-header p { font-size: 13px; color: rgba(255,255,255,0.6); }
+  .doc-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .meta-item { text-align: right; }
+  .meta-item .mlabel { font-size: 10px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.08em; }
+  .meta-item .mval { font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 500; }
+
+  /* === NAV TABS === */
+  .tab-nav {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    background: #fff;
+    padding: 8px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+  }
+  .tab-btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 12.5px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { background: var(--gray-50); color: var(--text); }
+  .tab-btn.active { background: var(--vas-green); color: #fff; }
+
+  /* === SECTION === */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* === OVERVIEW TABLE === */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 14px;
+    margin-bottom: 2rem;
+  }
+  .ov-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .ov-head {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ov-badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .tier1 { background: var(--navy); color: #fff; }
+  .tier2 { background: var(--vas-green); color: #fff; }
+  .tier3 { background: #3C3489; color: #fff; }
+  .tier4 { background: #3B6D11; color: #fff; }
+  .ov-name { font-size: 14px; font-weight: 600; }
+  .ov-body { padding: 12px 16px; border-top: 1px solid var(--gray-100); }
+  .ov-row { display: flex; gap: 8px; margin-bottom: 6px; font-size: 12.5px; }
+  .ov-row:last-child { margin-bottom: 0; }
+  .ov-label { color: var(--text-muted); min-width: 80px; flex-shrink: 0; font-size: 11.5px; }
+  .ov-val { color: var(--text); }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; margin: 1px 2px 1px 0; font-weight: 500; }
+  .tag-navy { background: var(--navy-light); color: var(--navy); }
+  .tag-teal { background: var(--vas-green-light); color: var(--vas-green-dark); }
+  .tag-amber { background: var(--amber-light); color: var(--amber); }
+  .tag-green { background: var(--green-light); color: var(--green); }
+  .tag-purple { background: #EEEDFE; color: #3C3489; }
+
+  /* === CAMPUS SECTION === */
+  .campus-hero {
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    margin-bottom: 1.5rem;
+    color: #fff;
+  }
+  .campus-hero .hero-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 4px; }
+  .campus-hero h2 { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+  .campus-hero .hero-sub { font-size: 13px; opacity: 0.7; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  @media(max-width: 680px){ .two-col { grid-template-columns: 1fr; } }
+
+  .info-block {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .info-block-head {
+    padding: 10px 16px;
+    background: var(--gray-50);
+    border-bottom: 1px solid var(--border);
+  }
+  .info-block-head h3 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); }
+  .info-block-body { padding: 14px 16px; }
+  .info-row { margin-bottom: 10px; }
+  .info-row:last-child { margin-bottom: 0; }
+  .info-row .lbl { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 2px; }
+  .info-row .val { font-size: 13px; line-height: 1.6; }
+
+  .angle-block {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .angle-head {
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gray-50);
+    border-bottom: 1px solid var(--border);
+  }
+  .angle-type { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+  .angle-title { font-size: 13.5px; font-weight: 600; color: var(--text); }
+  .angle-body { padding: 14px 16px; }
+
+  .split-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media(max-width: 600px){ .split-col { grid-template-columns: 1fr; } }
+  .split-head { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+  .sh-visual { background: var(--vas-green-light); color: var(--vas-green-dark); }
+  .sh-copy { background: var(--amber-light); color: var(--amber); }
+  .split-col ul { padding-left: 16px; }
+  .split-col ul li { font-size: 12.5px; line-height: 1.75; }
+
+  .example {
+    background: var(--gray-50);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    margin-top: 12px;
+    border-left: 3px solid var(--vas-green);
+  }
+  .example .ex-lbl { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--vas-green-dark); margin-bottom: 4px; }
+  .example .ex-text { font-size: 12.5px; font-style: italic; line-height: 1.6; color: var(--text); }
+
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+  @media(max-width: 520px){ .do-dont { grid-template-columns: 1fr; } }
+  .do-box { background: var(--green-light); border-radius: var(--radius); padding: 10px 12px; }
+  .dont-box { background: var(--red-light); border-radius: var(--radius); padding: 10px 12px; }
+  .do-box .box-lbl { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--green); margin-bottom: 6px; }
+  .dont-box .box-lbl { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--red); margin-bottom: 6px; }
+  .do-box ul, .dont-box ul { padding-left: 14px; }
+  .do-box ul li, .dont-box ul li { font-size: 12px; line-height: 1.7; }
+
+  .warning-box {
+    border-left: 3px solid var(--gold);
+    background: var(--gold-light);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+  }
+  .warning-box p { font-size: 12.5px; color: var(--amber); line-height: 1.6; }
+  .warning-box strong { font-weight: 600; }
+
+  .kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+  @media(max-width: 480px){ .kpi-row { grid-template-columns: 1fr 1fr; } }
+  .kpi-item { background: var(--gray-50); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 12px; }
+  .kpi-item .kpi-lbl { font-size: 10.5px; color: var(--text-muted); margin-bottom: 3px; }
+  .kpi-item .kpi-val { font-size: 13px; font-weight: 600; }
+
+  .tone-summary {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 14px 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .ts-item .ts-lbl { font-size: 10.5px; color: var(--text-muted); margin-bottom: 3px; }
+  .ts-item .ts-val { font-size: 12.5px; font-weight: 500; line-height: 1.45; }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 18px 0 14px;
+  }
+  .section-divider .sd-text { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); white-space: nowrap; }
+  .section-divider .sd-line { flex: 1; height: 1px; background: var(--border); }
+
+  .full-block { margin-bottom: 14px; }
+
+  /* print friendly */
+  @media print {
+    body { background: #fff; padding: 1rem; }
+    .tab-nav { display: none; }
+    .section { display: block !important; page-break-before: always; }
+    .section:first-of-type { page-break-before: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div>
+      <h1>VAS — Creative Brief · Lead Gen Campaign</h1>
+      <p>Phân bổ ads theo địa lý · Static Image + Reels · Facebook & Instagram · Toàn bộ 6 cơ sở TPHCM</p>
+    </div>
+    <div class="doc-meta">
+      <div class="meta-item">
+        <div class="mlabel">Mục tiêu</div>
+        <div class="mval">Lead Generation</div>
+      </div>
+      <div class="meta-item">
+        <div class="mlabel">Format</div>
+        <div class="mval">Static + Reels</div>
+      </div>
+      <div class="meta-item">
+        <div class="mlabel">Prepared by</div>
+        <div class="mval">PMAX Creative</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="showTab('overview')">Tổng quan</button>
+    <button class="tab-btn" onclick="showTab('sala')">Sala — Q2/Thủ Đức</button>
+    <button class="tab-btn" onclick="showTab('riverside')">Riverside — Q7</button>
+    <button class="tab-btn" onclick="showTab('sunrise')">Sunrise — Q7</button>
+    <button class="tab-btn" onclick="showTab('hvt')">Hoàng Văn Thụ — Phú Nhuận</button>
+    <button class="tab-btn" onclick="showTab('bth')">Ba Tháng Hai — Q10</button>
+    <button class="tab-btn" onclick="showTab('gh')">Garden Hills — Gò Vấp</button>
+  </div>
+
+  <!-- ===== OVERVIEW ===== -->
+  <div id="overview" class="section active">
+    <div class="warning-box">
+      <p><strong>Nguyên tắc geo-segmentation:</strong> Mỗi creative PHẢI geo-match đúng cơ sở trong landing page / form. Không dùng hình ảnh Sala để chạy cho Sunrise/Riverside — sẽ tạo kỳ vọng sai, giết tỷ lệ chuyển đổi từ lead sang enrollment.</p>
+    </div>
+    <div class="overview-grid">
+      <!-- Sala -->
+      <div class="ov-card">
+        <div class="ov-head">
+          <span class="ov-badge tier1">Tier 1 · Premium</span>
+          <span class="ov-name">Sala Mega Campus</span>
+        </div>
+        <div class="ov-body">
+          <div class="ov-row"><span class="ov-label">Địa chỉ</span><span class="ov-val">10 Mai Chí Thọ, KĐT Thủ Thiêm, TP. Thủ Đức</span></div>
+          <div class="ov-row"><span class="ov-label">Audience</span><span class="ov-val">Expat, Việt kiều, chuyên gia cấp cao, gia đình thu nhập rất cao</span></div>
+          <div class="ov-row"><span class="ov-label">CSVC nổi bật</span><span class="ov-val">20.000m², gym, rạp hát, hồ bơi, sân bóng — tiêu chuẩn 5 sao</span></div>
+          <div class="ov-row"><span class="ov-label">Tone</span><span class="ov-val">
+            <span class="tag tag-navy">Aspirational</span>
+            <span class="tag tag-navy">Prestigious</span>
+            <span class="tag tag-navy">Minimal copy</span>
+          </span></div>
+          <div class="ov-row"><span class="ov-label">Winning angle</span><span class="ov-val">IBDP / A-Level / Cambridge output — bằng cấp quốc tế, du học</span></div>
+          <div class="ov-row"><span class="ov-label">CTA</span><span class="ov-val">Đặt lịch tham quan cơ sở</span></div>
+        </div>
+      </div>
+      <!-- Riverside -->
+      <div class="ov-card">
+        <div class="ov-head">
+          <span class="ov-badge tier2">Tier 2 · Upper-mid</span>
+          <span class="ov-name">Riverside — Q7</span>
+        </div>
+        <div class="ov-body">
+          <div class="ov-row"><span class="ov-label">Địa chỉ</span><span class="ov-val">99 Nguyễn Thị Thập, Tân Phú, Q7</span></div>
+          <div class="ov-row"><span class="ov-label">Audience</span><span class="ov-val">Gia đình Việt trung thượng lưu tại Cityland, khu chung cư Nguyễn Thị Thập</span></div>
+          <div class="ov-row"><span class="ov-label">CSVC nổi bật</span><span class="ov-val">11.000m², 60% mảng xanh, kiến trúc vòm cung ấn tượng, hồ bơi, nhà thi đấu</span></div>
+          <div class="ov-row"><span class="ov-label">Tone</span><span class="ov-val">
+            <span class="tag tag-teal">Warm & trusted</span>
+            <span class="tag tag-teal">Kết quả thật</span>
+            <span class="tag tag-teal">Gần nhà</span>
+          </span></div>
+          <div class="ov-row"><span class="ov-label">Winning angle</span><span class="ov-val">Không gian xanh + song ngữ an toàn (giữ chương trình VN)</span></div>
+          <div class="ov-row"><span class="ov-label">CTA</span><span class="ov-val">Tham quan + xem học phí 2025</span></div>
+        </div>
+      </div>
+      <!-- Sunrise -->
+      <div class="ov-card">
+        <div class="ov-head">
+          <span class="ov-badge tier2">Tier 2 · Upper-mid</span>
+          <span class="ov-name">Sunrise — Q7</span>
+        </div>
+        <div class="ov-body">
+          <div class="ov-row"><span class="ov-label">Địa chỉ</span><span class="ov-val">Số 1, Đường 20, Khu Him Lam, Q7</span></div>
+          <div class="ov-row"><span class="ov-label">Audience</span><span class="ov-val">Gia đình Việt trung thượng lưu tại Him Lam, Q4, Q8 — thường là lần đầu chọn trường QT</span></div>
+          <div class="ov-row"><span class="ov-label">CSVC nổi bật</span><span class="ov-val">~10.000m², 60 phòng học, thiết bị nhập khẩu Anh Quốc — không phải CSVC mạnh nhất</span></div>
+          <div class="ov-row"><span class="ov-label">Tone</span><span class="ov-val">
+            <span class="tag tag-teal">Thành tích cụ thể</span>
+            <span class="tag tag-teal">Ấm áp</span>
+            <span class="tag tag-teal">Relatable</span>
+          </span></div>
+          <div class="ov-row"><span class="ov-label">Winning angle</span><span class="ov-val">Thành tích học thuật dẫn đầu Nam Sài Gòn — học bổng 34 tỷ, top 8 AIA</span></div>
+          <div class="ov-row"><span class="ov-label">CTA</span><span class="ov-val">Nhận tư vấn + xem học phí 2025</span></div>
+        </div>
+      </div>
+      <!-- HVT -->
+      <div class="ov-card">
+        <div class="ov-head">
+          <span class="ov-badge tier3">Tier 2 · Upper-mid</span>
+          <span class="ov-name">Hoàng Văn Thụ — Phú Nhuận</span>
+        </div>
+        <div class="ov-body">
+          <div class="ov-row"><span class="ov-label">Địa chỉ</span><span class="ov-val">202 Hoàng Văn Thụ, Q. Phú Nhuận (Nhà thi đấu Quân khu 7)</span></div>
+          <div class="ov-row"><span class="ov-label">Audience</span><span class="ov-val">Gia đình trung thượng lưu, cả 2 bố mẹ đi làm, khu vực Phú Nhuận / Tân Bình / Bình Thạnh</span></div>
+          <div class="ov-row"><span class="ov-label">CSVC nổi bật</span><span class="ov-val">Nằm trong Nhà thi đấu QK7 — khuôn viên rộng, thể thao tốt nhưng không phải campus mới</span></div>
+          <div class="ov-row"><span class="ov-label">Tone</span><span class="ov-val">
+            <span class="tag tag-amber">Value-driven</span>
+            <span class="tag tag-amber">Reassuring</span>
+            <span class="tag tag-amber">Specific</span>
+          </span></div>
+          <div class="ov-row"><span class="ov-label">Winning angle</span><span class="ov-val">Justify học phí bằng giá trị cụ thể — Cambridge, thành tích học bổng, gần trung tâm</span></div>
+          <div class="ov-row"><span class="ov-label">CTA</span><span class="ov-val">Nhận tư vấn miễn phí + bảng học phí 2025</span></div>
+        </div>
+      </div>
+      <!-- BTH -->
+      <div class="ov-card">
+        <div class="ov-head">
+          <span class="ov-badge tier4">Tier 2 · Upper-mid</span>
+          <span class="ov-name">Ba Tháng Hai — Q10</span>
+        </div>
+        <div class="ov-body">
+          <div class="ov-row"><span class="ov-label">Địa chỉ</span><span class="ov-val">594 Ba Tháng Hai, P.14, Q10</span></div>
+          <div class="ov-row"><span class="ov-label">Audience</span><span class="ov-val">Gia đình trung thượng lưu, nhiều quận lân cận (Q1, Q3, Q5, Q10, Bình Tân)</span></div>
+          <div class="ov-row"><span class="ov-label">CSVC nổi bật</span><span class="ov-val">Mega Campus đầu tiên (2006), vị trí trung tâm đắc địa, kiến trúc đương đại, 3.000 HS</span></div>
+          <div class="ov-row"><span class="ov-label">Tone</span><span class="ov-val">
+            <span class="tag tag-green">Truyền thống uy tín</span>
+            <span class="tag tag-green">Trung tâm thành phố</span>
+            <span class="tag tag-green">Tin cậy</span>
+          </span></div>
+          <div class="ov-row"><span class="ov-label">Winning angle</span><span class="ov-val">Cơ sở lâu đời nhất, dẫn đầu học bổng toàn hệ thống, vị trí "vàng" trung tâm</span></div>
+          <div class="ov-row"><span class="ov-label">CTA</span><span class="ov-val">Nhận tư vấn miễn phí + xem học phí + ưu đãi đăng ký sớm</span></div>
+        </div>
+      </div>
+      <!-- Garden Hills -->
+      <div class="ov-card">
+        <div class="ov-head">
+          <span class="ov-badge tier4">Tier 2 · Upper-mid</span>
+          <span class="ov-name">Garden Hills — Gò Vấp</span>
+        </div>
+        <div class="ov-body">
+          <div class="ov-row"><span class="ov-label">Địa chỉ</span><span class="ov-val">168 Phan Văn Trị, Q. Gò Vấp (trong khu CityLand)</span></div>
+          <div class="ov-row"><span class="ov-label">Audience</span><span class="ov-val">Gia đình trung lưu vươn lên, đang trong giai đoạn research trường lần đầu</span></div>
+          <div class="ov-row"><span class="ov-label">CSVC nổi bật</span><span class="ov-val">14.480m², 60% mảng xanh, sân thượng xanh ấn tượng, 2 hồ bơi, nhà hát, sân bóng</span></div>
+          <div class="ov-row"><span class="ov-label">Tone</span><span class="ov-val">
+            <span class="tag tag-green">Relatable</span>
+            <span class="tag tag-green">Inspiring</span>
+            <span class="tag tag-green">Community proof</span>
+          </span></div>
+          <div class="ov-row"><span class="ov-label">Winning angle</span><span class="ov-val">Trường quốc tế đầu tiên Bắc Sài Gòn — không gian xanh + social proof PH khu vực</span></div>
+          <div class="ov-row"><span class="ov-label">CTA</span><span class="ov-val">Nhận tư vấn miễn phí + bảng học phí + xem ưu đãi</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPI -->
+    <div class="info-block">
+      <div class="info-block-head"><h3>KPI định hướng toàn campaign</h3></div>
+      <div class="info-block-body">
+        <div class="kpi-row">
+          <div class="kpi-item"><div class="kpi-lbl">Primary KPI</div><div class="kpi-val">Số lead form hoàn thành / cơ sở</div></div>
+          <div class="kpi-item"><div class="kpi-lbl">Secondary KPI</div><div class="kpi-val">CPL — Tier 1 (Sala) có thể cao hơn, chấp nhận được</div></div>
+          <div class="kpi-item"><div class="kpi-lbl">Quality signal</div><div class="kpi-val">Tỷ lệ lead → đặt lịch tham quan thực tế</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SALA ===== -->
+  <div id="sala" class="section">
+    <div class="campus-hero" style="background: linear-gradient(135deg, #1A2744, #2A3D6E);">
+      <div class="hero-label">Tier 1 · Premium</div>
+      <h2>Sala Mega Campus</h2>
+      <div class="hero-sub">10 Mai Chí Thọ, KĐT Thủ Thiêm, TP. Thủ Đức &nbsp;·&nbsp; 20.000m² &nbsp;·&nbsp; Flagship campus</div>
+    </div>
+    <div class="two-col">
+      <div class="info-block">
+        <div class="info-block-head"><h3>Thực tế cơ sở vật chất</h3></div>
+        <div class="info-block-body">
+          <div class="info-row"><div class="lbl">Quy mô</div><div class="val">20.000m² — lớn nhất toàn hệ thống. Khuôn viên rộng, nhiều mảng xanh, campus kiến trúc 5 sao.</div></div>
+          <div class="info-row"><div class="lbl">CSVC đặc trưng</div><div class="val">Phòng gym riêng, hội trường rạp hát, hồ bơi, sân bóng đa năng, phòng thí nghiệm, thư viện, nhà hàng học đường. Là cơ sở DUY NHẤT trong hệ thống có gym và rạp hát.</div></div>
+          <div class="info-row"><div class="lbl">Vị trí</div><div class="val">Khu đô thị Thủ Thiêm — cao cấp nhất TPHCM, gần Thảo Điền, An Phú, khu Sala.</div></div>
+          <div class="info-row"><div class="lbl">Học sinh</div><div class="val">Mix expat (Hàn, Nhật, Tây Âu) + Việt kiều + gia đình Việt thu nhập rất cao. Môi trường đa văn hoá thực sự.</div></div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-head"><h3>Audience insight</h3></div>
+        <div class="info-block-body">
+          <div class="info-row"><div class="lbl">Họ là ai</div><div class="val">Thu nhập gia đình 150tr+/tháng. Đã biết muốn trường quốc tế — câu hỏi là "VAS có đủ tầm không?" chứ không phải "có nên học trường QT không?".</div></div>
+          <div class="info-row"><div class="lbl">Pain point</div><div class="val">Con cần bằng cấp Cambridge/IBDP để vào ĐH quốc tế. Lo môi trường peer group không đủ "chuẩn". Cần trường uy tín để tự tin chia sẻ với người xung quanh.</div></div>
+          <div class="info-row"><div class="lbl">Decision driver</div><div class="val">Output (bằng cấp, tỷ lệ du học) > CSVC > Reputation > Học phí (ít quan trọng nhất).</div></div>
+          <div class="info-row"><div class="lbl">Kênh tham khảo</div><div class="val">Facebook group expat HCMC, Thảo Điền community, word of mouth từ cộng đồng nước ngoài.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="tone-summary">
+      <div class="ts-item"><div class="ts-lbl">Tone tổng thể</div><div class="ts-val">Aspirational · Prestigious · Confident · Ít chữ</div></div>
+      <div class="ts-item"><div class="ts-lbl">Content style</div><div class="ts-val">Editorial — hình ảnh nói thay chữ. Số liệu lớn, không bullet dài.</div></div>
+      <div class="ts-item"><div class="ts-lbl">Ngôn ngữ nên dùng</div><div class="ts-val">Investment · Global citizen · Future-ready · Excellence</div></div>
+      <div class="ts-item"><div class="ts-lbl">Tuyệt đối tránh</div><div class="ts-val">"Học phí hợp lý", "tiết kiệm", "gần nhà", "đầu tư xứng đáng" (cliché)</div></div>
+    </div>
+
+    <div class="section-divider"><div class="sd-line"></div><span class="sd-text">Angle & Execution</span><div class="sd-line"></div></div>
+
+    <div class="angle-block">
+      <div class="angle-head"><span class="angle-type">Angle 1 · Winning</span><span class="angle-title">Bằng cấp Cambridge / IBDP — output thật sự</span></div>
+      <div class="angle-body">
+        <div class="split-col">
+          <div><span class="split-head sh-visual">Visual</span><ul><li>Aerial view khuôn viên 20.000m² — scale và không gian là ngôn ngữ chính</li><li>Hình HS nhận bằng Cambridge/A-Level tại trường</li><li>Số liệu lớn: "100% HS thi Cambridge tại trường — không cần đăng ký ngoài"</li></ul></div>
+          <div><span class="split-head sh-copy">Copy</span><ul><li>Headline: "Cambridge. IBDP. A-Level. Tất cả tại một nơi — ngay tại Thủ Thiêm."</li><li>Không giải thích chương trình dài dòng — PH đã biết những thuật ngữ này</li><li>Sub-copy tối đa 1 câu, dẫn thẳng vào CTA</li></ul></div>
+        </div>
+        <div class="example"><div class="ex-lbl">Ví dụ caption / headline</div><div class="ex-text">"20 năm đào tạo. Hơn 9.000 học sinh. Một hành trình liên tục từ mầm non đến A-Level — ngay trong khuôn viên 20.000m² tại Thủ Thiêm."</div></div>
+      </div>
+    </div>
+
+    <div class="angle-block">
+      <div class="angle-head"><span class="angle-type">Angle 2 · Facility</span><span class="angle-title">Hình ảnh campus — không cần chú thích</span></div>
+      <div class="angle-body">
+        <div class="split-col">
+          <div><span class="split-head sh-visual">Visual</span><ul><li>Wide shot hoặc drone — thấy toàn bộ quy mô campus</li><li>Reels "1 ngày tại VAS Sala" — nhạc ambient, không voiceover</li><li>Palette: ánh sáng tự nhiên, xanh lá, không filter sặc sỡ</li></ul></div>
+          <div><span class="split-head sh-copy">Copy</span><ul><li>Copy cực ngắn hoặc không cần copy — ảnh/video tự nói</li><li>Nếu có caption: chỉ địa chỉ + CTA</li><li>Tuyệt đối không dùng "5 sao", "đẳng cấp", "sang trọng" — PH tier này phân biệt được ngôn ngữ marketing sáo rỗng</li></ul></div>
+        </div>
+        <div class="do-dont">
+          <div class="do-box"><div class="box-lbl">Nên làm</div><ul><li>Hình ảnh thật, ánh sáng tự nhiên</li><li>Show gym, rạp hát — những thứ chỉ Sala có</li><li>Lifestyle shot HS trong campus</li></ul></div>
+          <div class="dont-box"><div class="box-lbl">Không nên làm</div><ul><li>Ảnh studio quá chỉnh sửa</li><li>Copy hô hào ("đẳng cấp quốc tế")</li><li>So sánh với trường khác</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="angle-block">
+      <div class="angle-head"><span class="angle-type">Angle 3 · Testimonial</span><span class="angle-title">PH expat / Việt kiều — lifestyle shot, không studio</span></div>
+      <div class="angle-body">
+        <div class="split-col">
+          <div><span class="split-head sh-visual">Visual</span><ul><li>PH rõ ràng là expat hoặc Việt kiều — lifestyle, không dàn dựng cứng</li><li>HS nói tiếng Anh fluent, tự tin — clip 10-15s</li><li>Môi trường học thuật: thuyết trình, lab, thảo luận nhóm</li></ul></div>
+          <div><span class="split-head sh-copy">Copy</span><ul><li>Quote ngắn, impactful: 1-2 câu tối đa</li><li>Không cần background PH dài dòng</li><li>Nếu HS nói tiếng Anh: để nguyên tiếng Anh, không cần subtitle Việt</li></ul></div>
+        </div>
+        <div class="example"><div class="ex-lbl">Ví dụ copy</div><div class="ex-text">"My daughter has been at VAS Sala for 4 years. Last month she got into her first choice — University of Melbourne." — <em>Chị Lan, phụ huynh VAS Sala, Q2</em></div></div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-block-head"><h3>Format & CTA</h3></div>
+      <div class="info-block-body">
+        <div class="info-row"><div class="lbl">Static image</div><div class="val">Tối đa 1 headline + 1 sub. Không bullet trên ảnh. Palette trắng/kem/xanh. Font sans sạch, weight nhẹ. Logo nhỏ.</div></div>
+        <div class="info-row"><div class="lbl">Reels</div><div class="val">0-3s: Hook bằng hình ảnh (không text). 3-20s: Campus hoặc HS thật. 20-25s: 1 statement + CTA nhẹ. Nhạc: ambient/instrumental.</div></div>
+        <div class="info-row"><div class="lbl">CTA</div><div class="val">"Đặt lịch tham quan cơ sở Sala" — Form: họ tên, SĐT, cấp học. Không hỏi nhiều.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== RIVERSIDE ===== -->
+  <div id="riverside" class="section">
+    <div class="campus-hero" style="background: linear-gradient(135deg, #0F6E56, #0B5244);">
+      <div class="hero-label">Tier 2 · Upper-mid — Q7</div>
+      <h2>Riverside Mega Campus</h2>
+      <div class="hero-sub">99 Nguyễn Thị Thập, Tân Phú, Q7 &nbsp;·&nbsp; 11.000m² &nbsp;·&nbsp; 60% không gian xanh</div>
+    </div>
+    <div class="warning-box">
+      <p><strong>Lưu ý quan trọng:</strong> Riverside KHÔNG phải tier premium như Sala. Audience là gia đình Việt trung thượng lưu — KHÔNG phải expat. Không dùng ngôn ngữ "sang chảnh" hay tone aspirational quá mức. Điểm bán hàng thực sự là kiến trúc xanh ấn tượng + gần khu dân cư.</p>
+    </div>
+    <div class="two-col">
+      <div class="info-block">
+        <div class="info-block-head"><h3>Thực tế cơ sở vật chất</h3></div>
+        <div class="info-block-body">
+          <div class="info-row"><div class="lbl">Quy mô</div><div class="val">11.000m², 5 tầng, sức chứa ~2.000 HS. Mở từ 2018 — campus mới nhất Q7.</div></div>
+          <div class="info-row"><div class="lbl">USP thực sự</div><div class="val">60% diện tích là không gian xanh. Kiến trúc vòm cung + đường thẳng mềm mại — ấn tượng nhất khu vực về thẩm mỹ. Cây xanh bao phủ từng tầng.</div></div>
+          <div class="info-row"><div class="lbl">Tiện ích</div><div class="val">Hồ bơi, nhà thi đấu, hội trường, sân bóng, lab, ICT, thư viện, phòng mỹ thuật, âm nhạc.</div></div>
+          <div class="info-row"><div class="lbl">So với Sala</div><div class="val">Không có gym riêng và rạp hát như Sala. Diện tích bằng 55% Sala. CSVC đầy đủ tiêu chuẩn nhưng không "5 sao flagship".</div></div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-head"><h3>Audience insight</h3></div>
+        <div class="info-block-body">
+          <div class="info-row"><div class="lbl">Họ là ai</div><div class="val">Gia đình Việt 30-42t, cả 2 đi làm, thu nhập ~50-100tr/tháng. Sống ở Cityland, Docklands, Golden Star, các chung cư khu Nguyễn Thị Thập.</div></div>
+          <div class="info-row"><div class="lbl">Pain point</div><div class="val">Muốn trường gần nhà, tiện đưa đón. Lo con "không theo kịp" chương trình quốc tế. Cần "permission" từ hàng xóm/cộng đồng trước khi quyết định.</div></div>
+          <div class="info-row"><div class="lbl">Nỗi lo chính</div><div class="val">Con học quốc tế rồi có thi được ĐH VN không? Học phí có xứng không? Môi trường có phù hợp con mình không?</div></div>
+          <div class="info-row"><div class="lbl">Kênh tham khảo</div><div class="val">Zalo/Facebook group khu Cityland, Nguyễn Thị Thập — word of mouth nội khu mạnh nhất.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="tone-summary">
+      <div class="ts-item"><div class="ts-lbl">Tone tổng thể</div><div class="ts-val">Ấm áp · Trung thực · Đặt lợi ích con lên đầu</div></div>
+      <div class="ts-item"><div class="ts-lbl">Content style</div><div class="ts-val">Thực tế, không dàn dựng quá. Show không gian xanh và HS đang dùng facility thật.</div></div>
+      <div class="ts-item"><div class="ts-lbl">Nên dùng</div><div class="ts-val">"Gần nhà bạn", "ba mẹ", "con em" — không phải "phụ huynh"</div></div>
+      <div class="ts-item"><div class="ts-lbl">Tránh</div><div class="ts-val">Tone bán hàng, hô hào, "đẳng cấp", "5 sao sang trọng"</div></div>
+    </div>
+
+    <div class="section-divider"><div class="sd-line"></div><span class="sd-text">Angle & Execution</span><div class="sd-line"></div></div>
+
+    <div class="angle-block">
+      <div class="angle-head"><span class="angle-type">Angle 1 · Winning</span><span class="angle-title">Không gian xanh — trường gần nhà mà đẹp như thế này</span></div>
+      <div class="angle-body">
+        <div class="split-col">
+          <div><span class="split-head sh-visual">Visual</span><ul><li>Shot từ xa để thấy kiến trúc vòm cung ấn tượng trên Nguyễn Thị Thập</li><li>Cây xanh bao phủ từng tầng — USP không trường nào trong khu có</li><li>HS vui chơi trong sân xanh, giờ thể thao ngoài trời — không phải ảnh phòng học trống</li></ul></div>
+          <div><span class="split-head sh-copy">Copy</span><ul><li>Nhắc địa điểm cụ thể: "ngay khu Cityland Q7", "cách Nguyễn Thị Thập 2 phút"</li><li>Dùng "gần nhà bạn" thay vì "tiện lợi"</li><li>Pair ngay với chương trình: "Không gian xanh + Cambridge = lựa chọn tốt nhất khu vực"</li></ul></div>
+        </div>
+        <div class="example"><div class="ex-lbl">Ví dụ caption</div><div class="ex-text">"11.000m² — hơn nửa là không gian xanh. Con không chỉ đến trường để học, mà còn có chỗ thở, chạy, và lớn lên. VAS Riverside ngay trong khu nhà bạn đang ở."</div></div>
+      </div>
+    </div>
+
+    <div class="angle-block">
+      <div class="angle-head"><span class="angle-type">Angle 2 · Pain point</span><span class="angle-title">"Song ngữ — không mất gốc chương trình VN"</span></div>
+      <div class="angle-body">
+        <div class="split-col">
+          <div><span class="split-head sh-visual">Visual</span><ul><li>Carousel: slide 1 câu hỏi PH lo, các slide sau là câu trả lời cụ thể</li><li>Hình giờ học Toán/Khoa học bằng tiếng Anh — show dual-language thực tế</li></ul></div>
+          <div><span class="split-head sh-copy">Copy</span><ul><li>Dẫn bằng câu hỏi thật: "Lo con học QT rồi không thi ĐH VN được?"</li><li>"VAS giữ nguyên chương trình Bộ GD + thêm Cambridge. Hai con đường, một ngôi trường."</li><li>Không dùng thuật ngữ MOET/CAPI trong caption</li></ul></div>
+        </div>
+        <div class="example"><div class="ex-lbl">Ví dụ caption Reels</div><div class="ex-text">"Nhiều ba mẹ hỏi: Con học VAS xong có thi được đại học VN không? Câu trả lời là có — vì con học đủ cả chương trình Bộ Giáo dục lẫn Cambridge. Hai con đường, một ngôi trường."</div></div>
+      </div>
+    </div>
+
+    <div class="angle-block">
+      <div class="angle-head"><span class="angle-type">Angle 3 · Testimonial</span><span class="angle-title">PH "giống tôi" sống cùng khu — không phải expat</span></div>
+      <div class="angle-body">
+        <div class="split-col">
+          <div><span class="split-head sh-visual">Visual</span><ul><li>PH Việt bình thường sống tại Cityland/khu vực — không phải lifestyle shot sang trọng</li><li>HS nói tiếng Anh tự nhiên — cần thật, không cần hoàn hảo</li></ul></div>
+          <div><span class="split-head sh-copy">Copy</span><ul><li>Gắn địa điểm: "Gia đình chị Mai, Cityland Q7"</li><li>Nêu kết quả cụ thể: "sau 1 năm", "từ khi vào lớp 1"</li><li>Không dùng cấu trúc testimonial sách vở</li></ul></div>
+        </div>
+        <div class="example"><div class="ex-lbl">Ví dụ testimonial</div><div class="ex-text">"Nhà mình ở Cityland, đi bộ đến VAS Riverside chưa đầy 10 phút. Cứ nghĩ trường gần là bình thường, nhưng khuôn viên xanh và cách thầy cô tương tác với con mình thật sự bất ngờ. Con học được 8 tháng, tự đọc sách tiếng Anh rồi." — <em>Anh Tuấn, Cityland Q7</em></div></div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-block-head"><h3>Format & CTA</h3></div>
+      <div class="info-block-body">
+        <div class="info-row"><div class="lbl">Static image</div><div class="val">Có thể có 2-3 điểm nhấn nhưng layout phải thoáng. Palette: xanh lá VAS, warm tone. Badge ưu đãi nếu có. Nhắc địa điểm cụ thể.</div></div>
+        <div class="info-row"><div class="lbl">Reels</div><div class="val">0-3s: Dẫn bằng câu hỏi PH lo ngại. 3-20s: Đan xen không gian xanh + HS học + PH testimonial. 20-30s: Thông tin nhanh + CTA. Text overlay nhiều hơn Sala.</div></div>
+        <div class="info-row"><div class="lbl">CTA</div><div class="val">"Tham quan cơ sở + xem học phí 2025" — Form thêm trường "Cấp học quan tâm" để qualify lead.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SUNRISE ===== -->
+  <div id="sunrise" class="section">
+    <div class="campus-hero" style="background: linear-gradient(135deg, #1D5C3A, #144530);">
+      <div class="hero-label">Tier 2 · Upper-mid — Q7</div>
+      <h2>Sunrise Campus</h2>
+      <div class="hero-sub">Số 1, Đường 20, Khu Him Lam, Q7 &nbsp;·&nbsp; ~10.000m² &nbsp;·&nbsp; Top 8 AIA Nam Sài Gòn</div>
+    </div>
+    <div class="warning-box">
+      <p><strong>Lưu ý quan trọng:</strong> Strength của Sunrise là THÀNH TÍCH học thuật — không phải CSVC. Đừng cố bán kiến trúc hay không gian sang trọng vì Sunrise không phải lợi thế đó. PH Him Lam quyết định dựa trên kết quả HS thật, word of mouth trong khu và sự gần gũi địa lý.</p>
+    </div>
+    <div class="two-col">
+      <div class="info-block">
+        <div class="info-block-head"><h3>Thực tế cơ sở vật chất</h3></div>
+        <div class="info-block-body">
+          <div class="info-row"><div class="lbl">Quy mô</div><div class="val">~10.000m², 4 tầng + 1 hầm, 60 phòng học + 12 phòng chức năng. Trường đang gần đầy (~2.000 HS).</div></div>
+          <div class="info-row"><div class="lbl">CSVC</div><div class="val">Hồ bơi, sân bóng, thư viện Follett, phòng ICT, lab, âm nhạc, hội họa, aerobic. Thiết bị nhập khẩu Anh Quốc. Đầy đủ tiêu chuẩn nhưng không phải highlight mạnh về thẩm mỹ.</div></div>
+          <div class="info-row"><div class="lbl">Thành tích</div><div class="val">Top 8 trường mạnh nhất AIA khu vực Nam Sài Gòn. HS giành học bổng Mỹ, Úc, Canada — có học bổng đến 34 tỷ. Cơ sở có nhiều HS đạt thành tích cao nhất hệ thống.</div></div>
+          <div class="info-row"><div class="lbl">So với Riverside</div><div class="val">Nhỏ hơn, ít xanh hơn, kiến trúc không ấn tượng bằng. Nhưng thành tích học thuật tốt hơn và thâm niên lâu hơn (2014 vs 2018).</div></div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-head"><h3>Audience insight</h3></div>
+        <div class="info-block-body">
+          <div class="info-row"><div class="lbl">Họ là ai</div><div class="val">Gia đình Việt trung thượng lưu, Him Lam, Q4, Q8. Nhiều gia đình đây là lần ĐẦU TIÊN cân nhắc trường QT — đang trong giai đoạn research.</div></div>
+          <div class="info-row"><div class="lbl">Pain point</div><div class="val">Chưa chắc học phí có xứng không. Cần bằng chứng kết quả cụ thể trước khi quyết định. "Hàng xóm/bạn bè trong khu đã cho con học chưa?"</div></div>
+          <div class="info-row"><div class="lbl">Thuyết phục bằng</div><div class="val">Số liệu học bổng cụ thể + video HS tự tin nói tiếng Anh + testimonial PH Him Lam/Q4/Q8 — người giống họ, không phải expat.</div></div>
+          <div class="info-row"><div class="lbl">Kênh tham khảo</div><div class="val">Zalo group Him Lam, Facebook group khu Q4/Q8 — word of mouth là kênh mạnh nhất.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="tone-summary">
+      <div class="ts-item"><div class="ts-lbl">Tone tổng thể</div><div class="ts-val">Thành tích thật · Gần gũi · Chứng minh không hứa hẹn</div></div>
+      <div class="ts-item"><div class="ts-lbl">Content style</div><div class="ts-val">Số liệu cụ thể, clip HS thật, testimonial PH khu vực</div></div>
+      <div class="ts-item"><div class="ts-lbl">Nên dùng</div><div class="ts-val">"Sau X năm", "X học sinh đạt", "ngay tại Him Lam"</div></div>
+      <div class="ts-item"><div class="ts-lbl">Tránh</div><div class="ts-val">Bán CSVC, ngôn ngữ "sang trọng", so sánh với Sala</div></div>
+    </div>
+
+    <div class="section-divider"><div class="sd-line"></div><span class="sd-text">Angle & Execution</span><div class="sd-line"></div></div>
+
+    <div class="angle-block">
+      <div class="angle-head"><span class="angle-type">Angle 1 · Winning</span><span class="angle-title">Kết quả tiếng Anh thật — không phải hứa hẹn</span></div>
+      <div class="angle-body">
+        <div class="split-col">
+          <div><span class="split-head sh-visual">Visual</span><ul><li>Clip HS Sunrise đang hùng biện, thuyết trình tiếng Anh — thi đấu thật, không dàn dựng</li><li>HS phỏng vấn ngẫu hứng bằng tiếng Anh — càng tự nhiên càng thuyết phục</li><li>Ảnh/clip lễ nhận học bổng, kết quả thi Cambridge</li></ul></div>
+          <div><span class="split-head sh-copy">Copy</span><ul><li>Lead bằng số liệu: "Top 8 trường mạnh nhất Nam Sài Gòn. Học bổng đến 34 tỷ. Không phải ngẫu nhiên."</li><li>Dùng lời HS thật: quote ngắn, đúng giọng lứa tuổi</li><li>Gắn khu vực: "Trường ngay trong khu Him Lam"</li></ul></div>
+        </div>
+        <div class="example"><div class="ex-lbl">Ví dụ caption</div><div class="ex-text">"Bé Minh học VAS Sunrise 3 năm. Tuần trước tự nhắn tin hỏi thăm thầy giáo người Úc bằng tiếng Anh — không có ba mẹ nhắc. Trường cách nhà Him Lam 5 phút đi bộ. Đó là lý do gia đình mình chọn ở đây."</div></div>
+      </div>
+    </div>
+
+    <div class="angle-block">
+      <div class="angle-head"><span class="angle-type">Angle 2 · Học phí</span><span class="angle-title">Pair học phí với kết quả — không bao giờ nói standalone</span></div>
+      <div class="angle-body">
+        <div class="split-col">
+          <div><span class="split-head sh-visual">Visual</span><ul><li>Infographic đơn giản: X triệu/tháng → HS nhận được gì cụ thể</li><li>Carousel: mỗi slide 1 kết quả thật (chứng chỉ, học bổng, kỹ năng)</li></ul></div>
+          <div><span class="split-head sh-copy">Copy</span><ul><li>Cấu trúc: "X triệu/tháng — con được: Cambridge, IELTS chính khóa, lab, hồ bơi, thầy cô Cambridge-certified"</li><li>Ưu đãi tuyển sinh / học bổng đăng ký sớm là hook mạnh nhất cho tier này</li><li>So sánh nhẹ: "bằng tiền trung tâm tiếng Anh + học thêm bên ngoài"</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-block-head"><h3>Format & CTA</h3></div>
+      <div class="info-block-body">
+        <div class="info-row"><div class="lbl">Static image</div><div class="val">Có thể dùng số liệu lớn (học bổng, tỷ lệ Cambridge) làm hero. Layout thoáng. Màu xanh VAS chính hãng.</div></div>
+        <div class="info-row"><div class="lbl">Reels</div><div class="val">0-3s: Câu hỏi PH lo ngại hoặc HS nói tiếng Anh tự nhiên. 3-20s: Thành tích + môi trường học. 20-30s: Học phí/ưu đãi + CTA rõ. Text overlay nhiều.</div></div>
+        <div class="info-row"><div class="lbl">CTA</div><div class="val">"Nhận tư vấn miễn phí + xem học phí 2025" — Form thêm "Cấp học" để qualify.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HVT ===== -->
+  <div id="hvt" class="section">
+    <div class="campus-hero" style="background: linear-gradient(135deg, #3C3489, #2D2766);">
+      <div class="hero-label">Tier 2 · Upper-mid — Phú Nhuận</div>
+      <h2>Cơ sở Hoàng Văn Thụ</h2>
+      <div class="hero-sub">202 Hoàng Văn Thụ, Q. Phú Nhuận &nbsp;·&nbsp; Khuôn viên Nhà thi đấu QK7 &nbsp;·&nbsp; Phục vụ: Phú Nhuận · Tân Bình · Bình Thạnh · Gò Vấp</div>
+    </div>
+    <div class="two-col">
+      <div class="info-block">
+        <div class="info-block-head"><h3>Thực tế cơ sở vật chất</h3></div>
+        <div class="info-block-body">
+          <div class="info-row"><div class="lbl">Đặc điểm</div><div class="val">Nằm trong khuôn viên Nhà thi đấu Quân khu 7 — không gian thể thao rộng rãi, thoáng. Campus cũ hơn các Mega Campus mới (2011).</div></div>
+          <div class="info-row"><div class="lbl">CSVC</div><div class="val">Phòng học ánh sáng tự nhiên, lab, ICT, nhạc, hội họa — đầy đủ tiêu chuẩn. Tận dụng nhà thi đấu cho hoạt động thể thao — đây là USP độc đáo.</div></div>
+          <div class="info-row"><div class="lbl">Cấp học</div><div class="val">Tiểu học đến THPT (KHÔNG có mầm non) — đây là điểm cần lưu ý khi targeting.</div></div>
+          <div class="info-row"><div class="lbl">Vị trí</div><div class="val">Trên đường Hoàng Văn Thụ — trục đường lớn kết nối Phú Nhuận, Tân Bình, Bình Thạnh, Q3. Rất thuận tiện đưa đón từ nhiều quận.</div></div>
+          <div class="info-row"><div class="lbl">Thành tích</div><div class="val">Nhiều thế hệ HS thành tích vượt trội, chất lượng đầu ra ấn tượng — lợi thế của cơ sở lâu năm.</div></div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-head"><h3>Audience insight</h3></div>
+        <div class="info-block-body">
+          <div class="info-row"><div class="lbl">Họ là ai</div><div class="val">Gia đình trung thượng lưu, chủ doanh nghiệp nhỏ hoặc professional (bác sĩ, kỹ sư, quản lý cấp trung). Thường cả 2 bố mẹ bận rộn.</div></div>
+          <div class="info-row"><div class="lbl">Pain point</div><div class="val">Muốn đầu tư cho con nhưng cần "justify" học phí rõ ràng. Câu hỏi: "VAS khác gì các trường song ngữ khác gần nhà?" Thường so sánh nhiều trường.</div></div>
+          <div class="info-row"><div class="lbl">Decision driver</div><div class="val">Giá trị cụ thể (bằng Cambridge, tỷ lệ thành công) > Thuận tiện > Thương hiệu. Nhạy cảm hơn về học phí so với PH Sala nhưng sẵn sàng trả nếu thấy rõ giá trị.</div></div>
+          <div class="info-row"><div class="lbl">Kênh tham khảo</div><div class="val">Facebook group phụ huynh Phú Nhuận / Tân Bình, hỏi đồng nghiệp. Thường tham khảo nhiều nguồn trước khi quyết định.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="tone-summary">
+      <div class="ts-item"><div class="ts-lbl">Tone tổng thể</div><div class="ts-val">Value-driven · Reassuring · Specific & credible</div></div>
+      <div class="ts-item"><div class="ts-lbl">Content style</div><div class="ts-val">Informative nhưng không lạnh. Kết hợp thông tin chương trình với hình ảnh HS thật. Nhiều chữ hơn Sala nhưng layout vẫn phải thoáng.</div></div>
+      <div class="ts-item"><div class="ts-lbl">Cần tập trung</div><div class="ts-val">Trả lời câu hỏi "tại sao VAS?" — không chỉ nói VAS tốt mà phải giải thích tốt HƠN gì</div></div>
+      <div class="ts-item"><div class="ts-lbl">Tránh</div><div class="ts-val">Chung chung, hứa hẹn không có số, tone bán hàng sôi nổi</div></div>
+    </div>
+
+    <div class="section-divider"><div class="sd-line"></div><span class="sd-text">Angle & Execution</span><div class="sd-line"></div></div>
+
+    <div class="angle-block">
+      <div class="angle-head"><span class="angle-type">Angle 1 · Winning</span><span class="angle-title">Justify học phí bằng giá trị cụ thể đo được</span></div>
+      <div class="angle-body">
+        <div class="split-col">
+          <div><span class="split-head sh-visual">Visual</span><ul><li>Infographic rõ ràng: học phí VAS vs giá trị nhận được (Cambridge cert, IELTS, etc.)</li><li>Ảnh chứng chỉ Cambridge thật, lễ nhận bằng — proof thực tế</li><li>Carousel: mỗi slide = 1 kết quả cụ thể HS đạt được</li></ul></div>
+          <div><span class="split-head sh-copy">Copy</span><ul><li>"Cambridge. IELTS chính khóa. Lab chuẩn quốc tế. Giáo viên Cambridge-certified. Tất cả trong 1 học phí."</li><li>Tránh cụm "đầu tư xứng đáng" — PH tier này đã nghe quá nhiều lần</li><li>Thay vào: số liệu cụ thể — "X% HS lớp 12 đạt IELTS 6.5+ trong kỳ thi chính khóa"</li></ul></div>
+        </div>
+        <div class="example"><div class="ex-lbl">Ví dụ caption</div><div class="ex-text">"Nhiều phụ huynh ở Phú Nhuận hỏi mình tại sao chọn VAS Hoàng Văn Thụ thay vì trường song ngữ gần nhà rẻ hơn. Câu trả lời: con được thi lấy chứng chỉ Cambridge ngay tại trường — không cần đăng ký trung tâm ngoài, không bị tính thêm phí. Đó là thứ mình cần tính vào khi so sánh học phí."</div></div>
+      </div>
+    </div>
+
+    <div class="angle-block">
+      <div class="angle-head"><span class="angle-type">Angle 2 · USP</span><span class="angle-title">Trường trên tuyến đường kết nối 4 quận — thuận tiện đưa đón</span></div>
+      <div class="angle-body">
+        <div class="split-col">
+          <div><span class="split-head sh-visual">Visual</span><ul><li>Map đơn giản show khoảng cách từ Phú Nhuận, Tân Bình, Bình Thạnh, Gò Vấp</li><li>Clip đưa đón buổi sáng — thực tế, nhanh gọn</li></ul></div>
+          <div><span class="split-head sh-copy">Copy</span><ul><li>"Phú Nhuận. Tân Bình. Bình Thạnh. Gò Vấp. VAS Hoàng Văn Thụ — trường quốc tế duy nhất nằm giữa tất cả những khu vực này."</li><li>Nhấn tính tiện lợi nhưng không phải điểm bán duy nhất — luôn pair với chất lượng</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-block-head"><h3>Format & CTA — lưu ý đặc biệt</h3></div>
+      <div class="info-block-body">
+        <div class="info-row"><div class="lbl">Lưu ý targeting</div><div class="val">HVT chỉ có Tiểu học → THPT (không có mầm non). Khi target phải loại trừ PH có con dưới 6 tuổi để tránh lãng phí ngân sách.</div></div>
+        <div class="info-row"><div class="lbl">Static image</div><div class="val">Có thể dùng 2-3 điểm nhấn. Layout thoáng. Pair hình ảnh HS học thật với số liệu cụ thể.</div></div>
+        <div class="info-row"><div class="lbl">Reels</div><div class="val">0-3s: Hook bằng câu hỏi "Đang cân nhắc giữa VAS và trường song ngữ khác?". 3-20s: So sánh giá trị nhận được. 20-30s: CTA + ưu đãi.</div></div>
+        <div class="info-row"><div class="lbl">CTA</div><div class="val">"Nhận tư vấn miễn phí + bảng học phí + so sánh lộ trình học" — PH tier này cần thông tin đầy đủ trước khi gặp tư vấn viên.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== BA THANG HAI ===== -->
+  <div id="bth" class="section">
+    <div class="campus-hero" style="background: linear-gradient(135deg, #3B6D11, #2D5209);">
+      <div class="hero-label">Tier 2 · Upper-mid — Quận 10</div>
+      <h2>Cơ sở Ba Tháng Hai</h2>
+      <div class="hero-sub">594 Ba Tháng Hai, P.14, Q10 &nbsp;·&nbsp; Mega Campus đầu tiên (2006) &nbsp;·&nbsp; 3.000+ học sinh</div>
+    </div>
+    <div class="two-col">
+      <div class="info-block">
+        <div class="info-block-head"><h3>Thực tế cơ sở vật chất</h3></div>
+        <div class="info-block-body">
+          <div class="info-row"><div class="lbl">Lịch sử</div><div class="val">Mega Campus đầu tiên của VAS (2006) — cơ sở lâu đời nhất, nhiều thế hệ HS. Kiến trúc đương đại, nhiều màu sắc phù hợp lứa tuổi.</div></div>
+          <div class="info-row"><div class="lbl">CSVC</div><div class="val">Hồ bơi, sân bóng, sân chơi ngoài trời rộng, phòng nhạc, hội họa, lab, ICT, thư viện. Khuôn viên có mảng xanh và sân chơi phong phú.</div></div>
+          <div class="info-row"><div class="lbl">Vị trí</div><div class="val">"Vàng" — giao thoa Q1, Q3, Q5, Q10, Bình Tân. Trên đường Ba Tháng Hai kết nối nhiều tuyến đường lớn. Gần bệnh viện, TTTM, tiện ích đầy đủ xung quanh.</div></div>
+          <div class="info-row"><div class="lbl">Thành tích</div><div class="val">Năm 2019-2020: DẪN ĐẦU toàn hệ thống VAS về số lượng và giá trị học bổng. HS được chấp nhận vào ĐH danh tiếng Mỹ, Anh, Canada, Hàn Quốc.</div></div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-head"><h3>Audience insight</h3></div>
+        <div class="info-block-body">
+          <div class="info-row"><div class="lbl">Họ là ai</div><div class="val">Gia đình trung thượng lưu đến từ nhiều quận: Q1, Q3, Q5, Q10, Bình Tân. Đa dạng hơn các cơ sở khác — không phải 1 khu dân cư cụ thể.</div></div>
+          <div class="info-row"><div class="lbl">Pain point</div><div class="val">Cần trường trung tâm, tiện đưa đón từ nhiều hướng. Muốn "thương hiệu lâu đời" — cảm giác an toàn khi chọn cơ sở đã có bề dày.</div></div>
+          <div class="info-row"><div class="lbl">Decision driver</div><div class="val">Uy tín/thương hiệu > Vị trí trung tâm > Thành tích học bổng > Học phí. PH Q10 thường ít nhạy cảm hơn về học phí so với Gò Vấp.</div></div>
+          <div class="info-row"><div class="lbl">Kênh tham khảo</div><div class="val">Nhiều kênh hơn — Facebook, word of mouth từ công sở (nhiều quận làm việc gần khu này), diễn đàn phụ huynh TPHCM.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="tone-summary">
+      <div class="ts-item"><div class="ts-lbl">Tone tổng thể</div><div class="ts-val">Uy tín · Truyền thống · Tin cậy · Trung tâm thành phố</div></div>
+      <div class="ts-item"><div class="ts-lbl">Content style</div><div class="ts-val">Kết hợp thành tích lịch sử + hiện tại. Nhấn vào bề dày 20 năm như một lợi thế thực sự.</div></div>
+      <div class="ts-item"><div class="ts-lbl">Unique angle</div><div class="ts-val">Cơ sở đầu tiên VAS — "nơi VAS bắt đầu hành trình" — tạo cảm giác tin cậy</div></div>
+      <div class="ts-item"><div class="ts-lbl">Tránh</div><div class="ts-val">Nhấn quá nhiều vào "mới" hay "hiện đại" — không phải thế mạnh của BTH</div></div>
+    </div>
+
+    <div class="section-divider"><div class="sd-line"></div><span class="sd-text">Angle & Execution</span><div class="sd-line"></div></div>
+
+    <div class="angle-block">
+      <div class="angle-head"><span class="angle-type">Angle 1 · Winning</span><span class="angle-title">20 năm — bề dày thành tích dẫn đầu toàn hệ thống</span></div>
+      <div class="angle-body">
+        <div class="split-col">
+          <div><span class="split-head sh-visual">Visual</span><ul><li>Hình ảnh nhiều thế hệ HS (cũ và mới) — brand story visual</li><li>Số liệu học bổng dẫn đầu toàn hệ thống — làm infographic rõ ràng</li><li>Clip hoạt động ngoại khóa đặc trưng: VAS Olympic, VAS's Got Talent, VASers Vì Cộng Đồng</li></ul></div>
+          <div><span class="split-head sh-copy">Copy</span><ul><li>"Cơ sở đầu tiên của VAS. Hơn 20 năm đào tạo. Vẫn dẫn đầu."</li><li>Nhấn thành tích học bổng năm gần nhất: "Năm học vừa rồi: X HS VAS Ba Tháng Hai được chấp nhận vào ĐH Mỹ, Anh, Canada."</li><li>Kết hợp: "Nằm ngay trung tâm — từ Q1, Q3, Q5, Q10, Bình Tân đều đến được trong 15 phút."</li></ul></div>
+        </div>
+        <div class="example"><div class="ex-lbl">Ví dụ caption</div><div class="ex-text">"Mình sống ở Q5, chồng làm ở Q1. VAS Ba Tháng Hai là nơi duy nhất cả hai đều có thể đưa đón con thuận tiện. Thêm nữa — 20 năm truyền thống và danh sách học bổng từ Mỹ, Anh, Canada năm ngoái của trường đã thuyết phục mình ngay từ lần đầu tham quan."</div></div>
+      </div>
+    </div>
+
+    <div class="angle-block">
+      <div class="angle-head"><span class="angle-type">Angle 2 · Facility + Location</span><span class="angle-title">Vị trí trung tâm + tiện ích đầy đủ xung quanh</span></div>
+      <div class="angle-body">
+        <div class="split-col">
+          <div><span class="split-head sh-visual">Visual</span><ul><li>Map khoảng cách từ nhiều quận — USP vị trí</li><li>Ảnh sân chơi ngoài trời, hồ bơi, hoạt động thể chất — healthy environment</li></ul></div>
+          <div><span class="split-head sh-copy">Copy</span><ul><li>"Từ Q1, Q3, Q5, Q10, Bình Tân — tất cả đều về đây được. Và con bạn được học Cambridge ngay tại trung tâm thành phố."</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-block-head"><h3>Format & CTA</h3></div>
+      <div class="info-block-body">
+        <div class="info-row"><div class="lbl">Static image</div><div class="val">Có thể bold hơn về thành tích. Palette xanh lá VAS + accent ấm. Badge ưu đãi tuyển sinh nếu có.</div></div>
+        <div class="info-row"><div class="lbl">Reels</div><div class="val">0-3s: Hook bằng thành tích cụ thể (học bổng, tỷ lệ Cambridge). 3-20s: Mix thành tích + hoạt động HS. 20-30s: Vị trí + CTA.</div></div>
+        <div class="info-row"><div class="lbl">CTA</div><div class="val">"Nhận tư vấn miễn phí + xem học phí + ưu đãi đăng ký sớm" — BTH thường có chính sách ưu đãi đóng sớm.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== GARDEN HILLS ===== -->
+  <div id="gh" class="section">
+    <div class="campus-hero" style="background: linear-gradient(135deg, #27500A, #1C3A07);">
+      <div class="hero-label">Tier 2 · Upper-mid — Gò Vấp</div>
+      <h2>Garden Hills Mega Campus</h2>
+      <div class="hero-sub">168 Phan Văn Trị, Q. Gò Vấp (trong khu CityLand) &nbsp;·&nbsp; 14.480m² &nbsp;·&nbsp; Trường QT đầu tiên Bắc Sài Gòn</div>
+    </div>
+    <div class="two-col">
+      <div class="info-block">
+        <div class="info-block-head"><h3>Thực tế cơ sở vật chất</h3></div>
+        <div class="info-block-body">
+          <div class="info-row"><div class="lbl">Quy mô</div><div class="val">14.480m² — lớn thứ 2 hệ thống sau Sala. 60% không gian xanh, cây sân thượng ấn tượng. Sức chứa 2.000 HS.</div></div>
+          <div class="info-row"><div class="lbl">USP thực sự</div><div class="val">Kiến trúc xanh độc đáo nhất khu Bắc Sài Gòn. Sân thượng phủ thảm thực vật là điểm nhấn không trường nào trong vùng có. Thiết kế nhiều không gian mở.</div></div>
+          <div class="info-row"><div class="lbl">CSVC đặc trưng</div><div class="val">2 hồ bơi (riêng cho mầm non/tiểu học và trung học), nhà hát, nhà thi đấu đa năng, sân bóng rổ + bóng đá, 80 phòng học + lab + ICT + nhạc + họa + phòng nấu ăn.</div></div>
+          <div class="info-row"><div class="lbl">Lịch sử</div><div class="val">Mở 2016 — trường quốc tế ĐẦU TIÊN tại Bắc Sài Gòn. Đây là positioning thực sự mạnh và khác biệt.</div></div>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-head"><h3>Audience insight</h3></div>
+        <div class="info-block-body">
+          <div class="info-row"><div class="lbl">Họ là ai</div><div class="val">Gia đình trung lưu đang vươn lên tại Gò Vấp, Q12, Bình Thạnh (khu vực phía Bắc). Bố mẹ có học vấn, ý thức cao về giáo dục. Nhiều gia đình là lần ĐẦU cân nhắc trường QT.</div></div>
+          <div class="info-row"><div class="lbl">Pain point</div><div class="val">Băn khoăn học phí nhưng không muốn con thiệt thòi. Lo "xa trung tâm thì trường có tốt không?". Cần cộng đồng PH xung quanh ủng hộ trước khi quyết định.</div></div>
+          <div class="info-row"><div class="lbl">Điểm đặc biệt</div><div class="val">PH Gò Vấp tự hào về khu vực đang phát triển — Garden Hills (CityLand) là biểu tượng của sự phát triển đó. Trường "xứng tầm" với khu ở là điều họ quan tâm.</div></div>
+          <div class="info-row"><div class="lbl">Kênh tham khảo</div><div class="val">Facebook/Zalo group phụ huynh Gò Vấp, CityLand community — word of mouth cực kỳ mạnh.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="tone-summary">
+      <div class="ts-item"><div class="ts-lbl">Tone tổng thể</div><div class="ts-val">Relatable · Inspiring · Accessible · Community proof</div></div>
+      <div class="ts-item"><div class="ts-lbl">Content style</div><div class="ts-val">Hình ảnh đời thường trong môi trường đẹp. Không quá "sang" để không tạo khoảng cách với PH.</div></div>
+      <div class="ts-item"><div class="ts-lbl">Unique angle</div><div class="ts-val">"Trường QT đầu tiên của Bắc Sài Gòn — ngay trong khu của bạn" — tạo cảm giác tự hào địa phương</div></div>
+      <div class="ts-item"><div class="ts-lbl">Tránh</div><div class="ts-val">Ngôn ngữ quá aspirational, hình ảnh lifestyle xa vời với thực tế của họ</div></div>
+    </div>
+
+    <div class="section-divider"><div class="sd-line"></div><span class="sd-text">Angle & Execution</span><div class="sd-line"></div></div>
+
+    <div class="angle-block">
+      <div class="angle-head"><span class="angle-type">Angle 1 · Winning</span><span class="angle-title">Không gian xanh + "Trường QT đầu tiên Bắc Sài Gòn" — tự hào địa phương</span></div>
+      <div class="angle-body">
+        <div class="split-col">
+          <div><span class="split-head sh-visual">Visual</span><ul><li>Sân thượng phủ cây xanh — USP độc đáo, không trường nào khu Bắc SG có</li><li>Ảnh toàn cảnh campus — show quy mô 14.480m² và kiến trúc xanh</li><li>HS vui chơi trong không gian mở — gần gũi, không dàn dựng quá</li><li>2 hồ bơi — tiện ích nhiều bố mẹ Gò Vấp quan tâm</li></ul></div>
+          <div><span class="split-head sh-copy">Copy</span><ul><li>"Trường quốc tế đầu tiên của Bắc Sài Gòn. Ngay trong khu của bạn."</li><li>Nhấn khu CityLand: "Trong khuôn viên CityLand Gò Vấp — nơi bạn đang sống, làm việc"</li><li>Pair với chương trình: "Không gian xanh 14.000m² + Cambridge = lựa chọn tốt nhất khu vực phía Bắc"</li></ul></div>
+        </div>
+        <div class="example"><div class="ex-lbl">Ví dụ caption</div><div class="ex-text">"Nhà mình ở Gò Vấp, hồi chưa có VAS Garden Hills, muốn cho con học trường quốc tế phải chạy xuống tận Q7 hay Q10. Giờ có trường 14.000m², 2 hồ bơi, sân bóng, Cambridge ngay trong khu — chỉ đi bộ từ nhà. Đó là lý do mình không cần suy nghĩ nhiều."</div></div>
+      </div>
+    </div>
+
+    <div class="angle-block">
+      <div class="angle-head"><span class="angle-type">Angle 2 · Pain point</span><span class="angle-title">Song ngữ an toàn — "Gò Vấp cũng có thể cho con học Cambridge"</span></div>
+      <div class="angle-body">
+        <div class="split-col">
+          <div><span class="split-head sh-visual">Visual</span><ul><li>HS Gò Vấp nói tiếng Anh tự nhiên — "proof" ngay tại địa phương</li><li>Carousel: "Con bạn có thể đạt điều này sau X năm tại Garden Hills"</li></ul></div>
+          <div><span class="split-head sh-copy">Copy</span><ul><li>Dẫn bằng misconception: "Nhiều người nghĩ trường quốc tế 'chỉ dành cho trẻ nhà giàu ở trung tâm'. Garden Hills đang phá vỡ điều đó — ngay tại Gò Vấp."</li><li>Ưu đãi tuyển sinh / học bổng đăng ký sớm là hook mạnh nhất cho PH tier này</li></ul></div>
+        </div>
+        <div class="example"><div class="ex-lbl">Ví dụ caption testimonial</div><div class="ex-text">"Trước đây mình nghĩ trường quốc tế là thứ của mấy nhà ở Q2, Q7. Nhưng Garden Hills ở ngay Gò Vấp, học phí mình có thể tính toán được, và con bây giờ tự tin nói tiếng Anh với thầy cô nước ngoài. Không hối tiếc gì." — <em>Chị Hoa, khu CityLand Gò Vấp</em></div></div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-block-head"><h3>Format & CTA</h3></div>
+      <div class="info-block-body">
+        <div class="info-row"><div class="lbl">Static image</div><div class="val">Hình ảnh sân thượng xanh / toàn cảnh campus là hero visual mạnh nhất. Text overlay nhẹ. Badge ưu đãi nếu có.</div></div>
+        <div class="info-row"><div class="lbl">Reels</div><div class="val">0-3s: Hook bằng hình campus ấn tượng HOẶC câu hỏi pain point. 3-20s: Campus xanh + HS học + testimonial PH Gò Vấp. 20-30s: Ưu đãi + CTA.</div></div>
+        <div class="info-row"><div class="lbl">CTA</div><div class="val">"Nhận tư vấn miễn phí + bảng học phí + xem ưu đãi tuyển sinh" — PH tier này cần thông tin học phí sớm để quyết định.</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
